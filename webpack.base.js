@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpaclPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const webpack = require("webpack");
 module.exports = {
   entry: {
     app: "./src/index.js",
@@ -38,6 +39,12 @@ module.exports = {
     new HtmlWebpaclPlugin({
       title: "Output",
       template: "./src/index.html"
+    }),
+    new webpack.optimize.SplitChunksPlugin({
+      chunks: "async",
+      minSize: 30000,
+      minChunks: 1,
+      name: true
     })
   ]
 };
