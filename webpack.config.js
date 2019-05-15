@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpaclPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const webpack = require("webpack");
 module.exports = {
   entry: {
     app: "./src/index.js",
@@ -11,6 +12,11 @@ module.exports = {
     path: path.resolve(__dirname, "dist")
   },
   mode: "development",
+  devtool: "cheap-module-eval-source-map",
+  devServer: {
+    contentBase: "./src",
+    hot: true
+  },
   module: {
     rules: [
       {
@@ -39,6 +45,7 @@ module.exports = {
     new HtmlWebpaclPlugin({
       title: "Output",
       template: "./src/index.html"
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ]
 };
