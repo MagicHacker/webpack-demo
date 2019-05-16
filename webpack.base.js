@@ -8,14 +8,25 @@ module.exports = {
     print: "./src/print.js"
   },
   output: {
-    filename: "[name].[chunkhash].js",
+    filename: "js/[name].[chunkhash].js",
     path: path.resolve(__dirname, "dist")
   },
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        use: [
+          "style-loader",
+          "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              plugins: () => {
+                return [require("autoprefixer")()];
+              }
+            }
+          }
+        ]
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
