@@ -1,0 +1,12 @@
+.hello {
+  color: red;
+  background: url(http://www.webpack.cn3791f7136b809d445d7e801007b89d7f.png);
+  background: url(http://www.webpack.cnfec3040d4823d18a6d421cce10d83310.jpg);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+

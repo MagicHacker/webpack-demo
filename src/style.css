@@ -2,7 +2,6 @@
   color: red;
   background: url("./cx.png");
   background: url("./lmx.jpg");
-}
-.div {
   display: flex;
+  transform: rotate(45deg);
 }
