@@ -11,8 +11,30 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        test: /\.less$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 0
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: loader => [
+                require('autoprefixer')()
+              ]
+            }
+          },
+          {
+            loader: 'less-loader'
+          }
+        ]
       },
       {
         test: /\.(png|jpg)$/,

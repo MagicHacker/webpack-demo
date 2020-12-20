@@ -1,3 +1,3 @@
-import '../css/style.css'
+import '../css/index.less'
 const str = 'Hello World!'
 document.write(str)
