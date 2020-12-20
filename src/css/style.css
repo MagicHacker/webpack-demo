@@ -1,7 +1,7 @@
-.hello {
-  color: red;
-  background: url("./cx.png");
-  background: url("./lmx.jpg");
-  display: flex;
-  transform: rotate(45deg);
+.wrapper {
+  width: 200px;
+  height: 200px;
+  color: #fff;
+  background: url('../image/cx.png') no-repeat center;
+  background-size: 100%;
 }
