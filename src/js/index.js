@@ -1,4 +1,7 @@
 import '../css/index.less'
 
-const str = 'Hello World!'
-document.write(str)
+const Johnson = 'Hello World!'
+document.write(Johnson)
+module.exports = {
+  Johnson
+}

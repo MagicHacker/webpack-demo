@@ -3,9 +3,10 @@ const CleanPlugin = require('clean-webpack-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
 const MiniExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
+  context: path.resolve(__dirname, 'src'),
   entry: {
-    app: './src/js/index.js',
-    print: './src/js/print.js'
+    app: ['./js/index.js', './js/print.js'],
+    vendor: 'lodash'
   },
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -53,6 +54,7 @@ module.exports = {
                 options: {
                   name: '[name].[ext]',
                   outputPath: 'images',
+                  publicPath: 'images/',
                   emitFile: true
                 }
               }
@@ -65,7 +67,7 @@ module.exports = {
   plugins: [
     new CleanPlugin(),
     new HtmlPlugin({
-      template: './src/index.html',
+      template: 'index.html',
       hash: true
     }),
     new MiniExtractPlugin({

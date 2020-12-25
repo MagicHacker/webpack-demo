@@ -1,2 +1,6 @@
 import '../css/demo.less'
-console.log('对面的傻逼吧')
+const JOE = 0
+
+module.exports = {
+  JOE
+}
