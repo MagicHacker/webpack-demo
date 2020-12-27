@@ -2,6 +2,7 @@ const path = require('path')
 const CleanPlugin = require('clean-webpack-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
 const MiniExtractPlugin = require('mini-css-extract-plugin')
+const Webpack = require('webpack')
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry: {
@@ -10,9 +11,17 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: '[name].js'
+    filename: 'js/[name].[hash].js',
+    chunkFilename: '[name].js'
   },
   mode: 'development',
+  devServer: {
+    contentBase: path.resolve(__dirname, './src'),
+    port: 8080,
+    open: true,
+    inline: true,
+    hot: true
+  },
   module: {
     rules: [
       {
@@ -64,6 +73,9 @@ module.exports = {
       }
     ]
   },
+  externals: {
+    jquery: 'jQuery'
+  },
   plugins: [
     new CleanPlugin(),
     new HtmlPlugin({
@@ -71,7 +83,8 @@ module.exports = {
       hash: true
     }),
     new MiniExtractPlugin({
-      filename: '[name].[hash].css'
-    })
+      filename: '[name].[contenthash].css'
+    }),
+    // new Webpack.HotModuleReplacementPlugin()
   ]
 }
