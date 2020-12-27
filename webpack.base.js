@@ -80,7 +80,15 @@ module.exports = {
     new CleanPlugin(),
     new HtmlPlugin({
       template: 'index.html',
-      hash: true
+      filename: 'index.html',
+      hash: true,
+      chunks: ['app']
+    }),
+    new HtmlPlugin({
+      template: 'lodash.html',
+      filename: 'lodash.html',
+      hash: true,
+      chunks: ['vendor']
     }),
     new MiniExtractPlugin({
       filename: '[name].[contenthash].css'
