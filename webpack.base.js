@@ -73,8 +73,12 @@ module.exports = {
       }
     ]
   },
+  devtool: 'eval-source-map',
   externals: {
     jquery: 'jQuery'
+  },
+  optimization: {
+    minimize: false
   },
   plugins: [
     new CleanPlugin(),
