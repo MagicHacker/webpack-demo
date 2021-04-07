@@ -6,8 +6,8 @@ const Webpack = require('webpack')
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry: {
-    app: ['./js/index.js', './js/print.js'],
-    vendor: 'lodash'
+    app: './js/index.js',
+    vendor: './js/print.js'
   },
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -90,7 +90,7 @@ module.exports = {
     }),
     new HtmlPlugin({
       template: 'lodash.html',
-      filename: 'lodash.html',
+      filename: 'vendor.html',
       hash: true,
       chunks: ['vendor']
     }),
