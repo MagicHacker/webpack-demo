@@ -75,7 +75,7 @@ module.exports = {
   },
   devtool: 'eval-source-map',
   externals: {
-    jquery: 'jQuery'
+    jqss: 'jQuery'
   },
   optimization: {
     minimize: false
